@@ -26,7 +26,7 @@ public class AdviceException {
 
     @ExceptionHandler(TooBigLineException.class)
     public ResponseEntity<ErrorResponse> handleException(TooBigLineException e) {
-        ErrorResponse response = new ErrorResponse("Too beg string line");
+        ErrorResponse response = new ErrorResponse("Too big string line");
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 }

@@ -35,13 +35,14 @@ public class LineService implements LineServiceInterface {
         if (line == null) {
             throw new NoSuchElementException("String is null");
         }
+        if (line.length() > 150) {
+            throw new TooBigLineException("Too big string line, must be less than 101");
+        }
         if (line.contains("\n") || line.contains("\b") || line.contains("\r") ||
                 line.contains("\f") || line.contains("\t")) {
             throw new IncorrectStringLineException("Wrong string line");
         }
-        if (line.length() > 150) {
-            throw new TooBigLineException("Too big string line, must be less than 101");
-        }
+
     }
     private String convertLineForAnswer(String line) {
         line = line.replace("[","");
